@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/detail_toolbar"
+        android:layout_width="match_parent"
+        app:title="Planet name"
+        app:titleTextColor="@color/white"
+        android:background="@color/button_color"
+        android:layout_height="?android:attr/actionBarSize"/>
+
+    <ImageView
+        android:id="@+id/detail_planet_img"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_below="@+id/detail_toolbar"/>
+
+    <TextView
+        android:id="@+id/detail_description"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/detail_ra_btn"
+        android:layout_below="@+id/detail_planet_img"
+        android:text="Some text here ...."
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"/>
+
+    <Button
+        android:id="@+id/detail_ra_btn"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:text="AR"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat"
+        android:background="@color/button_color"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

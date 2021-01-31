@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/planet_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="102dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/planet_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_launcher"/>
+            <TextView
+                android:id="@+id/planet_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:fontFamily="@font/montserrat"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/planet_img"/>
+            <TextView
+                android:id="@+id/planet_excerpt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. "
+                android:textStyle="italic"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:maxLines="2"
+                android:fontFamily="@font/montserrat"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/planet_img"
+                android:layout_below="@+id/planet_name"/>
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
