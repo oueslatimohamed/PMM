@@ -2,12 +2,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragment.QuizFragment">
+    tools:context="fragment.QuizFragment"
+    android:orientation="vertical"
+    >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Quiz" />
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:layout_marginTop="20dp">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+        <ImageView
+            android:layout_width="282dp"
+            android:layout_height="282dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:id="@+id/planet_img"
+            android:background="@color/black"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/answersGroup"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center">
+            <RadioButton
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:text="answer1"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:background="@drawable/radio_quiz"
+                android:button="@android:color/transparent"
+                android:layout_marginBottom="10dp"/>
+            <RadioButton
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:button="@android:color/transparent"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:background="@drawable/radio_quiz"
+                android:text="answer2"
+                android:layout_marginBottom="10dp"/>
+            <RadioButton
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:button="@android:color/transparent"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:background="@drawable/radio_quiz"
+                android:text="answer3"
+                android:layout_marginBottom="10dp"/>
+            <RadioButton
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:background="@drawable/radio_quiz"
+                android:button="@android:color/transparent"
+                android:text="answer4"/>
+        </RadioGroup>
+    </LinearLayout>
+</ScrollView>
 </FrameLayout>
