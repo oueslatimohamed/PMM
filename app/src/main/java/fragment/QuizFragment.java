@@ -142,11 +142,14 @@ public class QuizFragment extends Fragment {
                     planetImgs.setImageResource(images[incrementQuestion]);
 
                 }else if(incrementQuestion == questions.length){   // not working
+                    Bundle bundle = new Bundle();
                     ProfileFragment profilefragment = new ProfileFragment();
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.compteLayout,profilefragment);
-                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.replace(R.id.mainLayout,profilefragment);
+                    //fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
+                    bundle.putInt("Score", score);
+                    profilefragment.setArguments(bundle);
 
                 }
                 answersGrp.clearCheck();
