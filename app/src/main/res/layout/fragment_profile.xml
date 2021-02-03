@@ -3,60 +3,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="fragment.ProfileFragment">
+    tools:context="fragment.ProfileFragment"
+    android:id="@+id/compteLayout"
+    android:background="@color/backgroud_color">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/profile_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        app:title="Compte"
-        app:titleTextColor="@color/white"
-        android:background="@color/button_color"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="30dp"
-        android:layout_below="@+id/profile_toolbar">
+        android:layout_marginTop="60dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="148dp"
+            android:layout_height="148dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="80dp"
+            android:background="@color/white" />
+
         <TextView
             android:id="@+id/profile_tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nom et prenom"
-            android:textSize="20sp"
             android:fontFamily="@font/montserrat"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:text="Nom &amp; prénom"
+            android:textColor="@color/button_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"/>
+
         <TextView
             android:id="@+id/profile_tv_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Age"
-            android:textSize="20sp"
             android:fontFamily="@font/montserrat"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:text="Age"
+            android:textColor="@color/button_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"/>
+
         <TextView
             android:id="@+id/profile_tv_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Niveau de defficulte"
-            android:textSize="20sp"
             android:fontFamily="@font/montserrat"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:text="Niveau de defficulté"
+            android:textColor="@color/button_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"/>
+
         <TextView
             android:id="@+id/profile_tv_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Score"
-            android:textSize="20sp"
             android:fontFamily="@font/montserrat"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:text="Score"
+            android:textColor="@color/button_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="20dp"/>
+
 
     </LinearLayout>
 

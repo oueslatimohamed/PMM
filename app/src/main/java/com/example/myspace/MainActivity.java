@@ -15,14 +15,13 @@ import fragment.ProfileFragment;
 import fragment.QuizFragment;
 
 public class MainActivity extends AppCompatActivity {
-
+    public String actiontitle="";
     BottomNavigationView mBottomnavigationview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
         loadFragment(new HomeFragment());
 
         mBottomnavigationview = (BottomNavigationView) findViewById(R.id.bottom_navigation);
