@@ -38,7 +38,12 @@
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="@string/name"
-            android:paddingLeft="20dp" />
+            android:paddingLeft="20dp"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:nextFocusDown="@id/sign_et_lastname"
+            android:inputType="text"
+            />
         <EditText
             android:id="@+id/sign_et_lastname"
             android:layout_width="320dp"
@@ -50,7 +55,12 @@
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="Prenom"
-            android:paddingLeft="20dp" />
+            android:paddingLeft="20dp"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:nextFocusDown="@id/sign_et_age"
+            android:inputType="text"
+            />
         <EditText
             android:id="@+id/sign_et_age"
             android:layout_width="320dp"
@@ -63,7 +73,11 @@
             android:fontFamily="@font/montserrat"
             android:hint="Age"
             android:inputType="number"
-            android:paddingLeft="20dp" />
+            android:paddingLeft="20dp"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:nextFocusDown="@id/sign_et_username"
+            />
         <EditText
             android:id="@+id/sign_et_username"
             android:layout_width="320dp"
@@ -75,7 +89,12 @@
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="@string/nomuser"
-            android:paddingLeft="20dp" />
+            android:paddingLeft="20dp"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:nextFocusDown="@id/sign_et_password"
+            android:inputType="text"
+            />
         <EditText
             android:id="@+id/sign_et_password"
             android:layout_width="320dp"
@@ -88,7 +107,10 @@
             android:fontFamily="@font/montserrat"
             android:hint="@string/motpasse"
             android:inputType="textPassword"
-            android:paddingLeft="20dp" />
+            android:paddingLeft="20dp"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            />
         <Button
             android:id="@+id/sing_et_btn"
             android:layout_width="320dp"
@@ -100,7 +122,8 @@
             android:text="@string/createacc"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:maxLines="1"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
