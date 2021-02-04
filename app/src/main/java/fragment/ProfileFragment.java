@@ -35,8 +35,8 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         int score = getArguments().getInt("Score");
         mScore = (TextView) view.findViewById(R.id.profile_tv_score);
-        mScore.setText(String.valueOf(score));
-        Log.i("Score in profile" , String.valueOf(getArguments().getInt("Score")));
+        mScore.setText("Score "+ score);
+       // Log.i("Score in profile" , String.valueOf(getArguments().getInt("Score")));
         // Inflate the layout for this fragment
         return view;
     }

@@ -35,7 +35,7 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/button_2"
         android:fontFamily="@font/montserrat"
-        android:text="Créer un compte"
+        android:text="@string/createacc"
         android:textAllCaps="false"
         android:textColor="@color/button_color"
         android:textSize="18dp" />

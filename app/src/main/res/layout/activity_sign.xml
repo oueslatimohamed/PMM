@@ -23,7 +23,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat"
-            android:text="Créer votre compte"
+            android:text="@string/createacc"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -37,7 +37,7 @@
             android:elevation="10dp"
             android:ems="10"
             android:fontFamily="@font/montserrat"
-            android:hint="Nom"
+            android:hint="@string/name"
             android:paddingLeft="20dp" />
         <EditText
             android:id="@+id/sign_et_lastname"
@@ -49,7 +49,7 @@
             android:elevation="10dp"
             android:ems="10"
             android:fontFamily="@font/montserrat"
-            android:hint="Last Name"
+            android:hint="Prenom"
             android:paddingLeft="20dp" />
         <EditText
             android:id="@+id/sign_et_age"
@@ -74,7 +74,7 @@
             android:elevation="10dp"
             android:ems="10"
             android:fontFamily="@font/montserrat"
-            android:hint="Nom d'utilisateur"
+            android:hint="@string/nomuser"
             android:paddingLeft="20dp" />
         <EditText
             android:id="@+id/sign_et_password"
@@ -86,7 +86,7 @@
             android:elevation="10dp"
             android:ems="10"
             android:fontFamily="@font/montserrat"
-            android:hint="Mot de passe"
+            android:hint="@string/motpasse"
             android:inputType="textPassword"
             android:paddingLeft="20dp" />
         <Button
@@ -97,7 +97,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/button"
             android:fontFamily="@font/montserrat"
-            android:text="Créer un compte"
+            android:text="@string/createacc"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="18dp" />
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:gravity="center"
-                android:text="Vous n'avez pas de compte ?"
+                android:text="@string/noaccount"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
