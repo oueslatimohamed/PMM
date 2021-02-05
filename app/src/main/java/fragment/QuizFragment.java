@@ -95,14 +95,13 @@ public class QuizFragment extends Fragment {
                 }
                 RadioButton userAnswer = (RadioButton) answersGrp.findViewById(answersGrp.getCheckedRadioButtonId());
                 String answerText = userAnswer.getText().toString();
-//                Toast.makeText(getContext(),answerText,Toast.LENGTH_SHORT).show();
                 if(answerText.equals(answers[incrementQuestion])){
                     score ++;
-                    Toast.makeText(getContext(),"Tout à fait ! ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),getResources().getString(R.string.toutfait), Toast.LENGTH_SHORT).show();
                 }
                 else{
                     //score --;
-                    Toast.makeText(getContext(),"C'est faux ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),getResources().getString(R.string.faux), Toast.LENGTH_SHORT).show();
                 }
                 incrementQuestion ++;
                 if(incrementQuestion<questions.length)

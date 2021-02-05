@@ -40,7 +40,7 @@ public class ArActivity extends AppCompatActivity {
                                 this,
                                 Uri.parse(MODEL_URL),
                                 RenderableSource.SourceType.GLB)
-                                .setScale(0.75f)
+                                .setScale(5f)
                                 .setRecenterMode(RenderableSource.RecenterMode.ROOT)
                                 .build())
 
