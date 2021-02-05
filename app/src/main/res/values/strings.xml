@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">My Space</string>
     <!-- TODO: Remove or change this placeholder text -->
+<<<<<<< HEAD
     <string name="choose">Choisir une réponse</string>
     <string name="toutfait">Toute à fait ! </string>
     <string name="faux">C est faux</string>
@@ -81,4 +82,7 @@
     <string name="op39">"10 millions de miles"</string>
     <string name="op40">"63 millions de miles"</string>
 
+=======
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+>>>>>>> eb155cf62d5163df12821ceca12e64634f0dd620
 </resources>

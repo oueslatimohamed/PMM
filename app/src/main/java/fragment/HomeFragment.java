@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.myspace.DetailActivity;
-import com.example.myspace.MainActivity;
 import com.example.myspace.R;
 import com.squareup.picasso.Picasso;
 
@@ -32,24 +28,9 @@ import services.DatabasHelper;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
     List<Planet> mPlanets ;
+    ArrayList <Planet> planets;
     RecyclerView mRecyclerview;
     DatabasHelper databasHelper;
-
-    private ActionBar getActionBar() {
-        return ((AppCompatActivity) getActivity()).getSupportActionBar();
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        getActionBar().setTitle("Accueil");
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,6 +40,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         mRecyclerview.setHasFixedSize(true);
         mRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         databasHelper = new DatabasHelper(getContext());
+
+
         mPlanets = databasHelper.getAllPlanet();
         //Log.i("Home fragment" , String.valueOf(mPlanets.size()));
 

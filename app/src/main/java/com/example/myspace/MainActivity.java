@@ -6,7 +6,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -16,17 +15,20 @@ import fragment.ProfileFragment;
 import fragment.QuizFragment;
 
 public class MainActivity extends AppCompatActivity {
+
     BottomNavigationView mBottomnavigationview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
         loadFragment(new HomeFragment());
 
         mBottomnavigationview = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         mBottomnavigationview.setOnNavigationItemSelectedListener(navListener);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -43,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.nav_profile:
                             selectedFragment = new ProfileFragment();
-                            Log.d("profile", "onNavigationItemSelected: profile");
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

@@ -9,12 +9,12 @@ public class Planet implements Parcelable {
     private String mName;
     private String mDescription;
     private String mColor;
-    private String mImageurl;
+    private int mImageurl;
 
     public Planet() {
     }
 
-    public Planet(int id, String mName, String mDescription, String mColor, String mImageurl) {
+    public Planet(int id, String mName, String mDescription, String mColor, int mImageurl) {
         this.id = id;
         this.mName = mName;
         this.mDescription = mDescription;
@@ -28,7 +28,7 @@ public class Planet implements Parcelable {
         mName = in.readString();
         mDescription = in.readString();
         mColor = in.readString();
-        mImageurl = in.readString();
+        mImageurl = in.readInt();
     }
 
     public static final Creator<Planet> CREATOR = new Creator<Planet>() {
@@ -75,11 +75,11 @@ public class Planet implements Parcelable {
         this.mDescription = mDescription;
     }
 
-    public String getmImageurl() {
+    public int getmImageurl() {
         return mImageurl;
     }
 
-    public void setmImageurl(String mImageurl) {
+    public void setmImageurl(int mImageurl) {
         this.mImageurl = mImageurl;
     }
 
@@ -95,6 +95,6 @@ public class Planet implements Parcelable {
         parcel.writeString(mName);
         parcel.writeString(mDescription);
         parcel.writeString(mColor);
-        parcel.writeString(mImageurl);
+        parcel.writeInt(mImageurl);
     }
 }
