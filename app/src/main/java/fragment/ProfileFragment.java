@@ -2,41 +2,57 @@ package fragment;
 
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.myspace.MainActivity;
 import com.example.myspace.R;
+
+import model.User;
+import services.DatabasHelper;
 
 
 public class ProfileFragment extends Fragment {
+    TextView mName;
+    TextView mAge;
+    TextView mLevel;
     TextView mScore;
-    private ActionBar getActionBar() {
-        return ((AppCompatActivity) getActivity()).getSupportActionBar();
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        getActionBar().setTitle("Compte");
-    }
-
+    DatabasHelper databasHelper;
+    User user;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        int score = getArguments().getInt("Score");
+        mName = (TextView) view.findViewById(R.id.profile_tv_name);
+        mAge = (TextView) view.findViewById(R.id.profile_tv_age);
         mScore = (TextView) view.findViewById(R.id.profile_tv_score);
-        mScore.setText("Score "+ score);
-       // Log.i("Score in profile" , String.valueOf(getArguments().getInt("Score")));
+        mLevel = (TextView) view.findViewById(R.id.profile_tv_level);
+        databasHelper = new DatabasHelper(getContext());
+
+        //String login = getActivity().getIntent().getStringExtra("Login");
+
+         user = databasHelper.getUser(getActivity().getIntent().getStringExtra("Login"));
+
+        mName.setText(user.getmName() + " " +user.getmLastname());
+        mAge.setText(user.getmAge());
+        if(user.getmScore() >= 0 && user.getmScore() <= 2){
+            mLevel.setText("Debutant");
+        }
+        if(user.getmScore() > 2 && user.getmScore() <= 10){
+            mLevel.setText("Amateur");
+        }
+        if(user.getmScore() == 10) {
+            mLevel.setText("Avance");
+        }
+        mScore.setText(""+user.getmScore());
+
+
+
+
         // Inflate the layout for this fragment
         return view;
     }

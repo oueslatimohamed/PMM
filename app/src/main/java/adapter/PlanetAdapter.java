@@ -63,7 +63,8 @@ public class PlanetAdapter extends RecyclerView.Adapter<PlanetAdapter.ViewHolder
         Planet planet = mPlanets.get(position);
         holder.mCardView.setOnClickListener(mItemOnclickListener);
         holder.mCardView.setTag(position);
-        Picasso.get().load(planet.getmImageurl()).into(holder.mPlanetimage);
+        //Picasso.get().load(planet.getmImageurl()).into(holder.mPlanetimage);
+        holder.mPlanetimage.setImageResource(planet.getmImageurl());
         holder.mPlanetName.setText(planet.getmName());
         holder.mExcerpt.setText(planet.getmDescription());
     }

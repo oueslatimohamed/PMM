@@ -17,7 +17,7 @@ public class DatabasHelper extends SQLiteOpenHelper {
     // Database Version
     private static final int DATABASE_VERSION = 2;
     // Database Name
-    private static final String DATABASE_NAME = "MySpace.db";
+    private static final String DATABASE_NAME = "mySpace.db";
 
     // tables names
     private static final String TABLE_USER = "user";
@@ -30,6 +30,7 @@ public class DatabasHelper extends SQLiteOpenHelper {
     private static final String USER_AGE = "user_age";
     private static final String USER_LOGIN = "user_login";
     private static final String USER_PASSWORD = "user_password";
+    private static final String USER_SCORE = "user_score";
 
     // planet Table Columns names
     private static final String PLANET_ID = "planet_id";
@@ -42,7 +43,7 @@ public class DatabasHelper extends SQLiteOpenHelper {
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
             + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + USER_NAME + " TEXT,"
             + USER_LAST_NAME + " TEXT," + USER_AGE + " TEXT," + USER_LOGIN + " TEXT,"
-            + USER_PASSWORD + " TEXT" +")";
+            + USER_PASSWORD + " TEXT," +USER_SCORE+ " INTEGER DEFAULT 0" +")";
 
     // create planet table sql query
     private String CREATE_PLANET_TABLE = "CREATE TABLE " + TABLE_PLANET + "("
@@ -59,7 +60,6 @@ public class DatabasHelper extends SQLiteOpenHelper {
         super(context ,DATABASE_NAME,null,DATABASE_VERSION );
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CREATE_USER_TABLE);
@@ -72,9 +72,11 @@ public class DatabasHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         // If table is already exist
         sqLiteDatabase.execSQL(DROP_USER_TABLE);
-        sqLiteDatabase.execSQL(DROP_PLANET_TABLE);
-        Log.i("DataBase", "Tables deleted");
         onCreate(sqLiteDatabase);
+        sqLiteDatabase.execSQL(DROP_PLANET_TABLE);
+        onCreate(sqLiteDatabase);
+        Log.i("DataBase", "Tables deleted");
+
     }
 
     // Void to add user to user table
@@ -87,6 +89,7 @@ public class DatabasHelper extends SQLiteOpenHelper {
         values.put(USER_AGE, user.getmAge());
         values.put(USER_LOGIN, user.getmLogin());
         values.put(USER_PASSWORD, user.getmPassword());
+        values.put(USER_SCORE, user.getmScore());
 
         // Inserting Row
         db.insert(TABLE_USER, null, values);
@@ -137,7 +140,7 @@ public class DatabasHelper extends SQLiteOpenHelper {
         cursor.moveToFirst();
         while( ! cursor.isAfterLast() ) {
             Planet planet = new Planet( cursor.getInt( 0 ), cursor.getString( 1 ),
-                    cursor.getString( 3 ),  cursor.getString( 4 ) , cursor.getString(2)  );
+                    cursor.getString( 3 ),  cursor.getString( 4 ) , cursor.getInt(2)  );
             plantList.add( planet );
             cursor.moveToNext();
         }
@@ -147,21 +150,75 @@ public class DatabasHelper extends SQLiteOpenHelper {
         // return user list
         return plantList;
     }
+    public boolean registerUser(String name , String lastname , String age , String username , String password){
 
-    public boolean checkUser(String username, String password)
-    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(USER_NAME , name);
+        values.put(USER_LAST_NAME , lastname);
+        values.put(USER_AGE , age);
+        values.put(USER_LOGIN , username);
+        values.put(USER_PASSWORD , password);
+        values.put(USER_SCORE , 0);
+
+        long result = db.insert(TABLE_USER , null , values);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean checkUser(String username, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
         String[] columns = {USER_ID};
-        SQLiteDatabase db = getReadableDatabase();
         String selection = USER_LOGIN + "=?" + " and " + USER_PASSWORD + "=?";
         String[] selectionArgs = {username, password};
         Cursor cursor = db.query(TABLE_USER, columns,selection,selectionArgs,null,null,null);
         int count = cursor.getCount();
         cursor.close();
         db.close();
-
-        if(count>0)
+        if(count > 0){
             return true;
-        else
+        } else {
             return false;
+        }
+
     }
+
+    public User getUser(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_USER, new String[] {USER_ID,
+                        USER_NAME, USER_LAST_NAME , USER_AGE , USER_LOGIN , USER_PASSWORD , USER_SCORE}, USER_LOGIN + "=?",
+                new String[] { String.valueOf(username) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        User user = new User();
+
+        if(cursor.moveToFirst()){
+            user.setId(cursor.getInt(cursor.getColumnIndex(USER_ID)));
+            user.setmName(cursor.getString(cursor.getColumnIndex(USER_NAME)));
+            user.setmLastname(cursor.getString(cursor.getColumnIndex(USER_LAST_NAME)));
+            user.setmAge(cursor.getString(cursor.getColumnIndex(USER_AGE)));
+            user.setmLogin(cursor.getString(cursor.getColumnIndex(USER_LOGIN)));
+            user.setmPassword(cursor.getString(cursor.getColumnIndex(USER_PASSWORD)));
+            user.setmScore(cursor.getInt(cursor.getColumnIndex(USER_SCORE)));
+        }
+        // return contact
+        return user;
+    }
+
+
+    public boolean updateScores(int score, String username){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(USER_SCORE,score);
+        db.update(TABLE_USER, contentValues, USER_LOGIN + " = ? " ,
+                new String[]{String.valueOf(username)});
+
+        return true;
+    }
+
+
 }

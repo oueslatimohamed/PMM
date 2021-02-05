@@ -8,14 +8,22 @@ public class User {
     private String mLogin;
     private String mPassword;
 
-    public User(int id, String mName, String mLastname, String mAge, String mLogin, String mPassword) {
+    private int mScore = 0;
+
+    public User(){
+
+    }
+
+    public User(int id, String mName, String mLastname, String mAge, String mLogin, String mPassword, int mScore) {
         this.id = id;
         this.mName = mName;
         this.mLastname = mLastname;
         this.mAge = mAge;
         this.mLogin = mLogin;
         this.mPassword = mPassword;
+        this.mScore = mScore;
     }
+
 
     public int getId() {
         return id;
@@ -63,5 +71,13 @@ public class User {
 
     public void setmPassword(String mPassword) {
         this.mPassword = mPassword;
+    }
+
+    public int getmScore() {
+        return mScore;
+    }
+
+    public void setmScore(int mScore) {
+        this.mScore = mScore;
     }
 }

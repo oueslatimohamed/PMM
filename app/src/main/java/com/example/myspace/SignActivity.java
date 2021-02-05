@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,25 +40,25 @@ public class SignActivity extends AppCompatActivity {
         mLogin = (TextView) findViewById(R.id.sign_tv_login);
         databasHelper  = new DatabasHelper(this);
 
-        String name = mName.getText().toString();
-        String lastname = mLastname.getText().toString();
-        String age = mAge.getText().toString();
-        String username = mUsername.getText().toString();
-        String password = mPassword.getText().toString();
+
 
         mSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* if(TextUtils.isEmpty(name) || TextUtils.isEmpty(lastname) || TextUtils.isEmpty(age) || TextUtils.isEmpty(username)
-                        || TextUtils.isEmpty(password)) {
-                    Toast.makeText(SignActivity.this , "Veuillez remplir tous les champs",Toast.LENGTH_LONG).show();
-                } else {*/
-                    createAccount(name,lastname,age,username,password);
+               if(mName.getText().toString().equals("") || mLastname.getText().toString().equals("") || mAge.getText().toString().equals("") ||
+                       mUsername.getText().toString().equals("")
+                        || mPassword.getText().toString().equals("")) {
+                   //Log.i("Name",name);
+                    Toast.makeText(SignActivity.this, "Test" , Toast.LENGTH_SHORT).show();
+                } else {
+                    User user = new User(0,mName.getText().toString(),mLastname.getText().toString(),mAge.getText().toString(),mUsername.getText().toString(),mPassword.getText().toString(),0);
+                    databasHelper.addUser(user);
+                    databasHelper.close();
                     Intent intent = new Intent(SignActivity.this , LoginActivity.class);
                     startActivity(intent);
-                //}
+               }
+                }
 
-            }
         });
 
         mLogin.setOnClickListener(new View.OnClickListener() {
@@ -69,10 +70,6 @@ public class SignActivity extends AppCompatActivity {
         });
     }
 
-    private void createAccount(String name , String lastname , String age , String username , String password){
-        User user = new User(1,name,lastname,age,username,password);
-            databasHelper.addUser(user);
-            databasHelper.close();
-    }
+
 
 }
