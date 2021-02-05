@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/dropshadow"
         android:elevation="10dp"
-        app:itemIconTint="@color/selctor"
-        app:itemTextColor="@color/selctor"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:menu="@menu/bottom_navigation"
         android:layout_alignParentBottom="true"/>
 </RelativeLayout>

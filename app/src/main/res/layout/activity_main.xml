@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="221dp"
         android:layout_height="120dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo_white"
         android:layout_gravity="center"
         android:layout_marginTop="150dp"/>
 
@@ -34,11 +34,11 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginTop="24dp"
-        android:background="@drawable/button2"
+        android:background="@drawable/button_2"
         android:fontFamily="@font/montserrat"
         android:text="S'inscrire"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/button_color"
         android:textSize="18dp" />
 
 
