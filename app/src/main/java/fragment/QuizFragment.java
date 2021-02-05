@@ -95,7 +95,7 @@ public class QuizFragment extends Fragment {
             public void onClick(View view) {
                 if(answersGrp.getCheckedRadioButtonId()==-1)
                 {
-                    Toast.makeText(getContext(), "Choisir une réponse", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getResources().getString(R.string.choose), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 RadioButton userAnswer = (RadioButton) answersGrp.findViewById(answersGrp.getCheckedRadioButtonId());

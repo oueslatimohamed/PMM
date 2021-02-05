@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">My Space</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="choose">Choisir une réponse</string>
     <string name="toutfait">Toute à fait ! </string>
     <string name="faux">C est faux</string>
     <string name="btnSuivant">Suivant</string>

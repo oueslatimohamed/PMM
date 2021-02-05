@@ -75,5 +75,6 @@
     <string name="prenom">Last name</string>
     <string name="toutfait">"That's right ! "</string>
     <string name="faux">That\'s wrong !</string>
+    <string name="choose">Pick an answer</string>
 
 </resources>
